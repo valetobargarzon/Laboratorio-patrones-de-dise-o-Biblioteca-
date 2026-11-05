@@ -73,5 +73,24 @@ public class Main {
 
         otra.finalizar();
         System.out.println(otra);
+
+        
+System.out.println("\n=== PRUEBA P02: RESERVA SIN ESTUDIANTE ===");
+
+try {
+    Reserva reservaSinEstudiante = new ReservaBuilder()
+            .fecha(LocalDate.now().plusDays(7))
+            .horaInicio(LocalTime.of(14, 0))
+            .duracionHoras(2)
+            .cantidadPersonas(4)
+            .sala(new Sala("B", "Sala B", 4))
+            .build();
+
+    System.out.println(reservaSinEstudiante);
+
+} catch (IllegalStateException ex) {
+    System.out.println("Reserva rechazada: " + ex.getMessage());
+}
+
     }
 }
